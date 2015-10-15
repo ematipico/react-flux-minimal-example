@@ -18,7 +18,7 @@ The task will run an internal server at the following URL
 http://localhost:8080/webpack-dev-server/index.html
 ```
 
-If you already have a local webserver, just run the following command if build all the files in one single file. The project already have a built version.
+If you already have a local webserver, just run the following command and it will build all the files in one single file. The project already have a built version.
 ```
 gulp webpack
 ```
