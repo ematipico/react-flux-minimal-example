@@ -23,5 +23,9 @@ If you already have a local webserver, just run the following command and it wil
 gulp webpack
 ```
 
+If you want to run testing suite, execute the following command
+```
+gulp tests
+```
 
 Enjoy!
