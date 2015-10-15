@@ -1,6 +1,6 @@
 import React from 'react';
-import AppStore from '../stores/appStore.js';
-import AppActions from '../actions/appActions.js';
+import AppStore from '../../stores/appStore.js';
+import AppActions from '../../actions/appActions.js';
 
 export default class DecrementerButton extends React.Component {
     constructor() {

@@ -3,6 +3,7 @@ var gutil = require("gulp-util");
 var webpack = require("webpack");
 var WebpackDevServer = require("webpack-dev-server");
 var path = require('path');
+var Server = require('karma').Server;
 
 var config = {
     entry: path.resolve(__dirname, 'app/main.js'),
@@ -26,6 +27,14 @@ gulp.task("webpack", function(callback) {
         }));
         callback();
     });
+});
+
+gulp.task("tests", function(callback) {
+    // console.log(path.resolve(__dirname + 'test/karma.conf.js'))
+    new Server({
+    configFile: path.resolve(__dirname, 'test/karma.config.js'),
+    singleRun: false
+  }, callback).start();
 });
 
 gulp.task("webpack-dev-server", function(callback) {

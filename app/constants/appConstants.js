@@ -9,5 +9,4 @@ let AppConstants = {
     }
 
 }
-console.log(AppConstants)
 export default AppConstants;

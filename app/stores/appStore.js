@@ -19,18 +19,15 @@ class AppStore extends Store {
 }
 
 let appStoreInstance = new AppStore(0);
-console.log(AppConstants)
 
 appStoreInstance.dispatchToken = AppDispatcher.register(action => {
     switch(action.actionDetail.actionType) {
 
         case AppConstants.ActionTypes.INCREMENT:
-            console.log('increment!');
             appStoreInstance.counter++;
         break;
 
         case AppConstants.ActionTypes.DECREMENT:
-            console.log('decrement!');
             appStoreInstance.counter--;
         break;
 

@@ -1,6 +1,6 @@
 import React from 'react';
-import IncrementerButton from './components/incrementerButton.jsx';
-import DecrementerButton from './components/decrementerButton.jsx';
+import IncrementerButton from './components/incrementerButton/main.jsx';
+import DecrementerButton from './components/decrementerButton/main.jsx';
 import AppStore from './stores/appStore.js';
 
 export default class App extends React.Component {
