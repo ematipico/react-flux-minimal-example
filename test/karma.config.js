@@ -1,7 +1,7 @@
 module.exports = function(config) {
     config.set({
         basePath: '..',
-        browsers: ['Chrome'],
+        browsers: ['PhantomJS'],
         files: [
             {
                 pattern: 'test/text-context.js',
