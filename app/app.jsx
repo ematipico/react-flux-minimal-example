@@ -20,9 +20,14 @@ class App extends React.Component {
 
     getData() {
         if (!this.props.posts) {
-            console.log(AppActions.askData());
+            AppActions.askData();
         }
     }
+
+    componentWillMount() {
+        this.getData();
+    }
+
 
     render() {
         let posts = [];
@@ -49,7 +54,6 @@ class App extends React.Component {
                     </div>
                 </div>
                 <ul>{posts}</ul>
-                {this.getData()}
             </div>
         )
     }

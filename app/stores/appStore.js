@@ -5,13 +5,14 @@ class AppStore {
     constructor(counter) {
         this.bindListeners({
             updateCounter: [AppActions.decrement, AppActions.increment],
-            fetchData: AppActions.askData
+            onAskData: AppActions.askData
         });
 
         this.state = {
             counter: 0,
             posts: null
         };
+
     }
 
     updateCounter(counter) {
@@ -20,7 +21,7 @@ class AppStore {
         })
     }
 
-    fetchData(data) {
+    onAskData(data) {
         this.setState({
             posts: data
         })

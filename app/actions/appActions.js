@@ -15,11 +15,9 @@ class AppActions {
     }
 
     askData() {
-        console.log('fetchData')
         return (dispatch) => {
             $.ajax('./app/actions/data.json', {
                 success: (result) => {
-                    console.log(result.data)
                     dispatch(result.data);
                 }
             })

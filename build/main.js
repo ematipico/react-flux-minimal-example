@@ -19669,8 +19669,13 @@
 	        key: 'getData',
 	        value: function getData() {
 	            if (!this.props.posts) {
-	                console.log(_actionsAppActionsJs2['default'].askData());
+	                _actionsAppActionsJs2['default'].askData();
 	            }
+	        }
+	    }, {
+	        key: 'componentWillMount',
+	        value: function componentWillMount() {
+	            this.getData();
 	        }
 	    }, {
 	        key: 'render',
@@ -19725,8 +19730,7 @@
 	                    'ul',
 	                    null,
 	                    posts
-	                ),
-	                this.getData()
+	                )
 	            );
 	        }
 	    }], [{
@@ -21659,11 +21663,9 @@
 	    }, {
 	        key: 'askData',
 	        value: function askData() {
-	            console.log('fetchData');
 	            return function (dispatch) {
 	                _jquery2['default'].ajax('./app/actions/data.json', {
 	                    success: function success(result) {
-	                        console.log(result.data);
 	                        dispatch(result.data);
 	                    }
 	                });
@@ -23435,7 +23437,7 @@
 
 	        this.bindListeners({
 	            updateCounter: [_actionsAppActionsJs2['default'].decrement, _actionsAppActionsJs2['default'].increment],
-	            fetchData: _actionsAppActionsJs2['default'].askData
+	            onAskData: _actionsAppActionsJs2['default'].askData
 	        });
 
 	        this.state = {
@@ -23452,8 +23454,8 @@
 	            });
 	        }
 	    }, {
-	        key: 'fetchData',
-	        value: function fetchData(data) {
+	        key: 'onAskData',
+	        value: function onAskData(data) {
 	            this.setState({
 	                posts: data
 	            });
