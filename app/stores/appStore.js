@@ -1,42 +1,23 @@
-import Store from './store.js';
-import AppDispatcher from '../dispatcher/appDispatcher.js';
-import AppConstants from '../constants/appConstants.js';
+import Alt from '../alt';
+import AppActions from '../actions/appActions.js';
 
-const CHANGE_EVENT = 'change';
-class AppStore extends Store {
+class AppStore {
     constructor(counter) {
-        super();
-        this.counter = counter;
+        this.bindListeners({
+            updateCounter: [AppActions.decrement, AppActions.increment]
+        });
+
+        this.state = {
+            counter: 0
+        };
     }
 
-    getInitState() {
-        return 1;
+    updateCounter(counter) {
+        this.setState({
+            counter: this.state.counter + (counter)
+        })
     }
 
-    getCounterState() {
-        return this.counter;
-    }
 }
 
-let appStoreInstance = new AppStore(0);
-
-appStoreInstance.dispatchToken = AppDispatcher.register(action => {
-    switch(action.actionDetail.actionType) {
-
-        case AppConstants.ActionTypes.INCREMENT:
-            appStoreInstance.counter++;
-        break;
-
-        case AppConstants.ActionTypes.DECREMENT:
-            appStoreInstance.counter--;
-        break;
-
-        default:
-        return;
-    }
-
-    appStoreInstance.emitChange();
-    return true;
-});
-
-export default appStoreInstance;
+export default Alt.createStore(AppStore, 'AppStore');

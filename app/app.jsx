@@ -2,35 +2,27 @@ import React from 'react';
 import IncrementerButton from './components/incrementerButton/main.jsx';
 import DecrementerButton from './components/decrementerButton/main.jsx';
 import AppStore from './stores/appStore.js';
+import connectToStores from 'alt/utils/connectToStores';
 
-export default class App extends React.Component {
-
-    constructor() {
-        super();
-        this.state = {
-            counter: AppStore.getCounterState()
-        }
-        this.onChange = this.onChange.bind(this);
+class App extends React.Component {
+    static getStores() {
+        return [AppStore];
     }
 
-    componentDidMount() {
-        AppStore.addChangeListener(this.onChange);
-    }
-    componentWillUnmount() {
-        AppStore.removeChangeListener(this.onChange);
-    }
-    onChange() {
-        this.setState({
-            counter: AppStore.getCounterState()
-        })
-    }
+    static getPropsFromStores() {
+        return AppStore.getState();
+      }
+
+      propTypes: {
+          counter: React.PropTypes.object.isRequired
+      }
 
     render() {
         return (
             <div className="container">
                 <div className="row">
-                    <h1>App - General incrementer</h1>
-                    <h2>{this.state.counter}</h2>
+                    <h1>App - Count the hits!</h1>
+                    <h2>{this.props.counter}</h2>
                     <div className="col-sm-6">
                         <IncrementerButton />
                     </div>
@@ -42,3 +34,4 @@ export default class App extends React.Component {
         )
     }
 }
+export default connectToStores(App);

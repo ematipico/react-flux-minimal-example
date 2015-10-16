@@ -1,20 +1,12 @@
-import AppDispatcher from '../dispatcher/appDispatcher.js';
-import AppConstants from '../constants/appConstants.js';
-
+import Alt from '../alt';
 
 class AppActions {
-
     increment() {
-        AppDispatcher.handleViewAction({
-            actionType: AppConstants.ActionTypes.INCREMENT
-        })
+        return 1
     }
 
     decrement() {
-        AppDispatcher.handleViewAction({
-            actionType: AppConstants.ActionTypes.DECREMENT
-        })
+        return -1;
     }
-
 }
-export default new AppActions();
+export default Alt.createActions(AppActions);
