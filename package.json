@@ -11,7 +11,8 @@
         "webpack-dev-server": "*",
         "alt": "*",
         "flux": "*",
-        "core-js": "*"
+        "core-js": "*",
+        "jquery": "^2.1.4"
     },
     "scripts": {
         "build": "webpack",
